@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:IGS.Resx"
+             Title="{x:Static resx:AppResources.AddCat}"
+             x:Class="IGS.Views.Dashbord.Categoriesview">
+    <ContentPage.Content>
+        <AbsoluteLayout
+        Padding="0"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+            <StackLayout>
+                <Grid Margin="10" x:Name="GI" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <ImageButton Grid.Row="0" 
+                             Grid.ColumnSpan="2" 
+                             Source="Pic.png" 
+                             IsVisible="true" 
+                             HorizontalOptions="CenterAndExpand" 
+                             VerticalOptions="CenterAndExpand"
+                             x:Name="btnSelectPic" 
+                             Clicked="btnSelectPic_Clicked"
+                             BackgroundColor="White" 
+                             BorderColor="#BF043055" 
+                             BorderWidth="5" 
+                             CornerRadius="50" 
+                             HeightRequest="95" 
+                             WidthRequest="95"/>
+                    <Label FontSize="Large" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{x:Static resx:AppResources.AddCat}" TextColor="#BF043055" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                    <Button x:Name="Btngac" 
+                                            Command="{Binding SubmitCommand}"
+                                            Grid.Row="2" Grid.Column="0"
+                                            Grid.ColumnSpan="2"
+                                            Text="{x:Static resx:AppResources.Cat}" 
+                                            Clicked="Btngac_Clicked"
+                                            TextColor="#BF043055"
+                                            FontAttributes="Bold" HorizontalOptions="FillAndExpand"
+                                            VerticalOptions="CenterAndExpand"
+                                            BorderColor="#BF043055"
+                                            BorderWidth="2"
+                                            BackgroundColor="White"
+                                            CornerRadius="15"
+                                            FontSize="Medium"/>
+                </Grid>
+                <Frame Margin="20" x:Name="Category" BackgroundColor="#BF043055" HasShadow="False" IsVisible="false" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout>
+                        <Image x:Name="imageView" HeightRequest="300" WidthRequest="330" />
+                        <Button Clicked="CP_Clicked" Text="{x:Static resx:AppResources.CP}" x:Name="CP" BackgroundColor="White" TextColor="#BF043055" CornerRadius="20" BorderWidth="2" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" WidthRequest="200" FontSize="Medium" BorderColor="#BF043055" />
+                        <Entry x:Name="Cattext" Placeholder="{x:Static resx:AppResources.Cat}"   
+                           PlaceholderColor="White" HeightRequest="40"
+                           TextColor="White"/>
+                    </StackLayout>
+                </Frame>
+                <Button IsVisible="false" Grid.ColumnSpan="2" Clicked="Add_Clicked" Grid.Row="1" Text="{x:Static resx:AppResources.Add}" x:Name="Add" BackgroundColor="White" TextColor="#BF043055" CornerRadius="20" BorderWidth="2" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" WidthRequest="200" FontSize="Medium" BorderColor="#BF043055" />
+            </StackLayout>
+            <!--  Popup Area  -->
+            <ContentView
+            x:Name="PU"
+            Padding="0,0"
+            AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+            AbsoluteLayout.LayoutFlags="All"
+            BackgroundColor="#C0808080"
+            IsVisible="false">
+
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <StackLayout
+                    BackgroundColor="White"
+                    HeightRequest="120"
+                    Orientation="Vertical"
+                    WidthRequest="180">
+                        <ActivityIndicator Color="#BF043055"
+                                           x:Name="AI"
+                                           IsVisible="False"
+                                           IsRunning="False" 
+                                           HorizontalOptions="CenterAndExpand" 
+                                           VerticalOptions="CenterAndExpand" />
+                        <Label Text="{x:Static resx:AppResources.Loading}" 
+                               TextColor="#BF043055"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand"/>
+                    </StackLayout>
+
+                </StackLayout>
+
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

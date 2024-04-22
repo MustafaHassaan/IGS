@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:IGS.Resx"
+             x:Class="IGS.Views.Menu.Registration" Title ="{x:Static resx:AppResources.RegisterTitle}">
+    <ContentPage.Content>
+        <AbsoluteLayout
+        Padding="0"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+            <BoxView HeightRequest="10"/>
+            <Frame BackgroundColor="#BF043055" HasShadow="False">
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <Entry x:Name="Phone" Text="" Placeholder="{x:Static resx:AppResources.Phone}"   
+                           PlaceholderColor="White" HeightRequest="40"
+                           MaxLength="11"
+                           Keyboard="Telephone"  
+                           TextColor="White"/>
+                    <Entry x:Name="Password" Text="" Placeholder="{x:Static resx:AppResources.Password}"   
+                           PlaceholderColor="White" HeightRequest="40"  
+                           MaxLength="20"
+                           IsPassword="True"  
+                           TextColor="White"/>
+                </StackLayout>
+            </Frame>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <CheckBox x:Name="CB" Grid.Row="0" Grid.Column="0" IsChecked="{Binding HasEnd}" />
+                <Label HorizontalOptions="Start" VerticalOptions="Center" Grid.Row="0" Grid.Column="1" Text="{x:Static resx:AppResources.CBPrivacy}" TextColor="#BF043055" />
+                <Button x:Name="Privacy" Grid.Row="1" Grid.ColumnSpan="2" Command="{Binding SubmitCommand}" Text="{x:Static resx:AppResources.TOU}" Clicked="Privacy_Clicked" TextColor="White"  
+                    FontAttributes="Bold" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#BF043055" FontSize="Medium"/>
+                <Button x:Name="Register" Grid.Row="2" Grid.ColumnSpan="2" Command="{Binding SubmitCommand}" Text="{x:Static resx:AppResources.RegisterTitle}" Clicked="Register_Clicked" TextColor="White"  
+                    FontAttributes="Bold" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#BF043055" FontSize="Large"/>
+            </Grid>
+        </StackLayout>
+            <!--  Popup Area  -->
+            <ContentView
+            x:Name="popupLoginView"
+            Padding="10,0"
+            AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+            AbsoluteLayout.LayoutFlags="All"
+            BackgroundColor="#C0808080"
+            IsVisible="false">
+
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <StackLayout
+                    BackgroundColor="White"
+                    HeightRequest="120"
+                    Orientation="Vertical"
+                    WidthRequest="180">
+                        <ActivityIndicator Color="#BF043055"
+                                           x:Name="AI"
+                                           IsVisible="False"
+                                           IsRunning="False" 
+                                           HorizontalOptions="CenterAndExpand" 
+                                           VerticalOptions="CenterAndExpand" />
+                        <Label Text="{x:Static resx:AppResources.Loading}" 
+                               TextColor="#BF043055"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand"/>
+                    </StackLayout>
+
+                </StackLayout>
+
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

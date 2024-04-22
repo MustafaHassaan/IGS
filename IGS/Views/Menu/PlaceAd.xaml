@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:IGS.Resx"
+             x:Class="IGS.Views.Menu.PlaceAd" Title="{x:Static resx:AppResources.PA}">
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout
+        Padding="0"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <Grid Margin="10" x:Name="GI" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <!--Row One-->
+                        <ImageButton Grid.Row="0" 
+                             Grid.Column="0"
+                             Source="Pic.png"
+                             Clicked="Imga_Clicked"
+                             x:Name="Imga"
+                             HorizontalOptions="FillAndExpand" 
+                             VerticalOptions="FillAndExpand"
+                             BorderColor="#BF043055"
+                             HeightRequest="100"
+                             WidthRequest="100"
+                             BorderWidth="2" />
+                        <Image Grid.Row="0" Grid.Column="0" x:Name="Ia" Source="Pic.png" IsVisible="false" Aspect="Fill" WidthRequest="85" />
+                        <ImageButton Grid.Row="0" 
+                             Grid.Column="1"
+                             Source="Pic.png"
+                             Clicked="Imgb_Clicked"
+                             x:Name="Imgb"
+                             HorizontalOptions="FillAndExpand" 
+                             VerticalOptions="FillAndExpand"
+                             BorderColor="#BF043055"
+                             HeightRequest="100"
+                             WidthRequest="100"
+                             BorderWidth="2" />
+                        <Image Grid.Row="0" Grid.Column="1" x:Name="Ib" Source="Pic.png" IsVisible="false" Aspect="Fill" WidthRequest="85" />
+                        <ImageButton Grid.Row="0" 
+                             Grid.Column="2"
+                             Source="Pic.png"
+                             Clicked="Imgc_Clicked"
+                             x:Name="Imgc"
+                             HorizontalOptions="FillAndExpand" 
+                             VerticalOptions="FillAndExpand"
+                             BorderColor="#BF043055"
+                             HeightRequest="100"
+                             WidthRequest="100"
+                             BorderWidth="2" />
+                        <Image Grid.Row="0" Grid.Column="2" x:Name="Ic" Source="Pic.png" IsVisible="false" Aspect="Fill" WidthRequest="85" />
+                        <!--Row One-->
+
+                        <!--Row Two-->
+                        <ImageButton Grid.Row="1" 
+                             Grid.Column="0"
+                             Source="Pic.png"
+                             Clicked="Imgd_Clicked"
+                             x:Name="Imgd"
+                             HorizontalOptions="FillAndExpand" 
+                             VerticalOptions="FillAndExpand"
+                             BorderColor="#BF043055"
+                             HeightRequest="100"
+                             WidthRequest="100"
+                             BorderWidth="2" />
+                        <Image Grid.Row="1" Grid.Column="0" x:Name="Id" Source="Pic.png" IsVisible="false" Aspect="Fill" WidthRequest="85" />
+
+                        <ImageButton Grid.Row="1" 
+                             Grid.Column="1"
+                             Source="Pic.png"
+                             Clicked="Imge_Clicked"
+                             x:Name="Imge"
+                             HorizontalOptions="FillAndExpand" 
+                             VerticalOptions="FillAndExpand"
+                             BorderColor="#BF043055"
+                             HeightRequest="100"
+                             WidthRequest="100"
+                             BorderWidth="2" />
+                        <Image Grid.Row="1" Grid.Column="1" x:Name="Ie" Source="Pic.png" IsVisible="false" Aspect="Fill" WidthRequest="85" />
+
+                        <ImageButton Grid.Row="1" 
+                             Grid.Column="2"
+                             Source="Pic.png"
+                             Clicked="Imgf_Clicked"
+                             x:Name="Imgf"
+                             HorizontalOptions="FillAndExpand" 
+                             VerticalOptions="FillAndExpand"
+                             BorderColor="#BF043055"
+                             HeightRequest="100"
+                             WidthRequest="100"
+                             BorderWidth="2" />
+                        <Image Grid.Row="1" Grid.Column="2" x:Name="If" Source="Pic.png" IsVisible="false" Aspect="Fill" WidthRequest="85" />
+
+                        <!--Row Two-->
+                    </Grid>
+                    <StackLayout>
+                        <Frame Margin="10" x:Name="Media" BackgroundColor="#BF043055" HasShadow="False" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <StackLayout>
+                                <Entry x:Name="MedName" Placeholder="{x:Static resx:AppResources.MedName}"   
+                                       PlaceholderColor="White"
+                                       TextColor="White"/>
+                                <Entry x:Name="MedDisc" Placeholder="{x:Static resx:AppResources.MedDisc}"   
+                                       PlaceholderColor="White"
+                                       TextColor="White"/>
+                                <Picker SelectedIndexChanged="MedCat_SelectedIndexChanged" x:Name="MedCat" TextColor="White" Title="{x:Static resx:AppResources.Cat}" />
+                                <Picker x:Name="MedItem" TextColor="White" Title="{x:Static resx:AppResources.Items}" />
+                                <Entry x:Name="Meduser" Placeholder="{x:Static resx:AppResources.Meduser}"   
+                                       PlaceholderColor="White"
+                                       TextColor="White"/>
+                                <Entry x:Name="MedContect" Placeholder="{x:Static resx:AppResources.MedContect}"   
+                                       PlaceholderColor="White"
+                                       Keyboard="Telephone"
+                                       TextColor="White"/>
+                                <Entry Focused="MedLocation_Focused" x:Name="MedLocation" Placeholder="Location"   
+                                       PlaceholderColor="White"
+                                       TextColor="White"/>
+                                <Entry x:Name="Medlat" Placeholder="Location"
+                                       IsVisible="false"
+                                       PlaceholderColor="White"
+                                       TextColor="White"/>
+                                <Entry x:Name="MedPrice" Placeholder="Price"
+                                       PlaceholderColor="White"
+                                       Keyboard="Numeric"
+                                       TextColor="White"/>
+                                <Entry x:Name="Medlon" Placeholder="Location"
+                                       IsVisible="false"
+                                       PlaceholderColor="White"
+                                       TextColor="White"/>
+                                <Button Text="{x:Static resx:AppResources.PA}" x:Name="MedSave" Clicked="MedSave_Clicked" BackgroundColor="White" TextColor="#BF043055" CornerRadius="20" BorderWidth="2" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" WidthRequest="200" FontSize="Medium" BorderColor="#BF043055" />
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+                <!--  Popup Area  -->
+                <ContentView
+            x:Name="PU"
+            Padding="0,0"
+            AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+            AbsoluteLayout.LayoutFlags="All"
+            BackgroundColor="#C0808080"
+            IsVisible="false">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <StackLayout
+                    BackgroundColor="White"
+                    HeightRequest="120"
+                    Orientation="Vertical"
+                    WidthRequest="180">
+                            <ActivityIndicator Color="#BF043055"
+                                           x:Name="AI"
+                                           IsVisible="False"
+                                           IsRunning="False" 
+                                           HorizontalOptions="CenterAndExpand" 
+                                           VerticalOptions="CenterAndExpand" />
+                            <Label Text="{x:Static resx:AppResources.Loading}" 
+                               TextColor="#BF043055"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </StackLayout>
+                </ContentView>
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

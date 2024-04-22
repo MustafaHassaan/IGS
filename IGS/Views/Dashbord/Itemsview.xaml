@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:IGS.Resx"
+             Title="{x:Static resx:AppResources.AddItems}"
+             x:Class="IGS.Views.Dashbord.Itemsview">
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <Grid>
+                        <Frame x:Name="CatItems" BackgroundColor="#BF043055" HasShadow="False">
+                            <StackLayout Orientation="Vertical" Spacing="10">
+                                <Entry x:Name="CDText" Placeholder="{x:Static resx:AppResources.Items}"   
+                           PlaceholderColor="White" HeightRequest="40"
+                           TextColor="White"/>
+                                <Picker x:Name="picker" TextColor="White" Title="{x:Static resx:AppResources.Items}" />
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                    <Button Clicked="Add_Clicked" Text="{x:Static resx:AppResources.Add}" x:Name="Add" BackgroundColor="White" TextColor="#BF043055" CornerRadius="20" BorderWidth="2" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" WidthRequest="200" FontSize="Medium" BorderColor="#BF043055" />
+                    <Button Clicked="Show_Clicked" Text="{x:Static resx:AppResources.ShowItems}" x:Name="Show" BackgroundColor="White" TextColor="#BF043055" CornerRadius="20" BorderWidth="2" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" WidthRequest="200" FontSize="Medium" BorderColor="#BF043055" />
+                </StackLayout>
+                <!--  Popup Area  -->
+                <ContentView
+            x:Name="PU"
+            Padding="10,0"
+            AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+            AbsoluteLayout.LayoutFlags="All"
+            BackgroundColor="#C0808080"
+            IsVisible="false">
+
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <StackLayout
+                    BackgroundColor="White"
+                    HeightRequest="120"
+                    Orientation="Vertical"
+                    WidthRequest="180">
+                            <ActivityIndicator Color="#BF043055"
+                                           x:Name="AI"
+                                           IsVisible="False"
+                                           IsRunning="False" 
+                                           HorizontalOptions="CenterAndExpand" 
+                                           VerticalOptions="CenterAndExpand" />
+                            <Label Text="{x:Static resx:AppResources.Loading}" 
+                               TextColor="#BF043055"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+
+                    </StackLayout>
+
+                </ContentView>
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

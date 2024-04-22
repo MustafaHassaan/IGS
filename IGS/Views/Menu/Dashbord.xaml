@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:IGS.Resx"
+             x:Class="IGS.Views.Menu.Dashbord" Title="{x:Static resx:AppResources.Dashbord}">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Grid Margin="15">
+                    <Button x:Name="Btngau" 
+                                            Command="{Binding SubmitCommand}"
+                                            Grid.Row="0" Grid.Column="0"
+                                            Text="{x:Static resx:AppResources.Users}" 
+                                            Clicked="Btngau_Clicked"
+                                            TextColor="#BF043055"  
+                                            FontAttributes="Bold" HorizontalOptions="FillAndExpand"
+                                            VerticalOptions="FillAndExpand"
+                                            BorderColor="#BF043055"
+                                            BorderWidth="2"
+                                            BackgroundColor="White"
+                                            CornerRadius="15"
+                                            FontSize="Medium"/>
+                    <Button x:Name="Btngac"
+                                            Command="{Binding SubmitCommand}"
+                                            Grid.Row="1" Grid.Column="0"
+                                            Text="{x:Static resx:AppResources.Cat}"
+                                            Clicked="Btngac_Clicked"
+                                            TextColor="#BF043055"  
+                                            FontAttributes="Bold" HorizontalOptions="FillAndExpand"
+                                            VerticalOptions="FillAndExpand"
+                                            BorderColor="#BF043055"
+                                            BorderWidth="2"
+                                            BackgroundColor="White"
+                                            CornerRadius="15"
+                                            FontSize="Medium"/>
+                    <Button x:Name="Btngai" 
+                                            Command="{Binding SubmitCommand}"
+                                            Grid.Row="2" Grid.Column="0"
+                                            Text="{x:Static resx:AppResources.Items}"
+                                            Clicked="Btngai_Clicked"
+                                            TextColor="#BF043055"  
+                                            FontAttributes="Bold" HorizontalOptions="FillAndExpand"
+                                            VerticalOptions="FillAndExpand"
+                                            BorderColor="#BF043055"
+                                            BorderWidth="2"
+                                            BackgroundColor="White"
+                                            CornerRadius="15"
+                                            FontSize="Medium"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

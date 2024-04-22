@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:IGS.Resx"
+             Title="{x:Static resx:AppResources.About}"
+             x:Class="IGS.Views.Menu.About">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame HeightRequest="200" BackgroundColor="#BF043055">
+                <Grid>
+                    <Image Grid.Row="0" Grid.Column="0" Source="Logo.png" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" />
+                    <Label Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="White" FontSize="Small" Text="{x:Static resx:AppResources.version}" />
+                </Grid>
+            </Frame>
+            <Grid VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                <ImageButton x:Name="FB" Clicked="FB_Clicked" Grid.Row="0" Grid.Column="0" Source="FB.png" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="White" />
+                <Label Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="#BF043055" FontSize="Small" Text="{x:Static resx:AppResources.GFB}" />
+            </Grid>
+            <Frame HeightRequest="50" BackgroundColor="Gray" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand">
+                <Label x:Name="CRA" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="White" FontSize="Small" />
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

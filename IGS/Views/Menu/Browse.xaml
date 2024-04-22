@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:IGS.Resx"
+             x:Class="IGS.Views.Menu.Browse" Title="{x:Static resx:AppResources.Brows}">
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout
+        Padding="0"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <CarouselView HeightRequest="250" BackgroundColor="Gray" ItemsSource="{Binding .}" x:Name="MCV">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <Image Aspect="Fill" Source="{Binding .}" />
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                    <Frame>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                        </Frame.GestureRecognizers>
+                        <Grid>
+                            <Label IsVisible="false" x:Name="Lat" Grid.Row="0" Grid.Column="0" Text="{Binding MedLcoationlat}" TextColor="#BF043055" FontSize="Medium" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+                            <Label IsVisible="false" x:Name="Lon" Grid.Row="0" Grid.Column="0" Text="{Binding MedLcoationlon}" TextColor="#BF043055" FontSize="Medium" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+                            <Label Grid.Row="0" Grid.Column="0" Text="{x:Static resx:AppResources.PlaceAdd}" TextColor="#BF043055" FontSize="Medium" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+                            <Label Margin="30,0,0,0" Grid.Row="0" Grid.Column="1" Text="{Binding MedStuation}" TextColor="#BF043055" FontSize="Small" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" />
+                            <Image Source="Location.png" Grid.Row="0" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"  />
+                        </Grid>
+                    </Frame>
+                    <Frame>
+                        <Grid>
+                            <Label TextColor="#BF043055" FontSize="Medium" Grid.Row="0" Text="{Binding MedName}" />
+                            <Label TextColor="#BF043055" FontSize="Small" Grid.Row="1" Text="{Binding MedDescription}" />
+                            <Label TextColor="#BF043055" FontSize="Small" Grid.Row="2" Text="{Binding MedPrice}" />
+                        </Grid>
+                    </Frame>
+                    <Button x:Name="BC" Text="{x:Static resx:AppResources.CA}"
+                            TextColor="#BF043055"
+                            Clicked="BC_Clicked"
+                            FontAttributes="Bold" 
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            BorderColor="#BF043055"
+                            BorderWidth="2"
+                            BackgroundColor="White"
+                            Margin="15"
+                            CornerRadius="15" FontSize="Medium"/>
+                    <Frame x:Name="Oper" BackgroundColor="#BF043055" IsVisible="false" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                        <Grid>
+                            <Label TextColor="White" FontSize="Medium" Grid.Row="0" Text="{Binding AdvertiserName}"  HorizontalTextAlignment="Center"  />
+                            <Label x:Name="Phone" TextColor="White" FontSize="Medium" Grid.Row="1" Grid.Column="0" Text="{Binding MedConteact}" HorizontalTextAlignment="Center" />
+                            <Button x:Name="CallPhone" Clicked="CallPhone_Clicked" CornerRadius="15" TextColor="#BF043055" Text="{x:Static resx:AppResources.CA}" BackgroundColor="White" Grid.Row="2">
+                            </Button>
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+                <!--  Popup Area  -->
+                <ContentView
+            x:Name="PU"
+            Padding="10,0"
+            AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+            AbsoluteLayout.LayoutFlags="All"
+            BackgroundColor="#C0808080"
+            IsVisible="false">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <StackLayout
+                    BackgroundColor="White"
+                    HeightRequest="120"
+                    Orientation="Vertical"
+                    WidthRequest="180">
+                            <ActivityIndicator Color="#BF043055"
+                                           x:Name="AI"
+                                           IsVisible="False"
+                                           IsRunning="False" 
+                                           HorizontalOptions="CenterAndExpand" 
+                                           VerticalOptions="CenterAndExpand" />
+                            <Label Text="{x:Static resx:AppResources.Loading}" 
+                               TextColor="#BF043055"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </StackLayout>
+                </ContentView>
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:IGS.Resx"
+             Title="{x:Static resx:AppResources.Cat}"
+             x:Class="IGS.Views.Dashbord.Categoryupdate">
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout
+        HorizontalOptions="CenterAndExpand">
+                <StackLayout Orientation="Vertical" Spacing="40" Margin="25">
+                    <Frame BackgroundColor="#BF043055" HasShadow="False" WidthRequest="315">
+                        <StackLayout Orientation="Vertical" Spacing="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label x:Name="txtId" IsVisible="false" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0" TextColor="#BF043055" FontSize="Medium" />
+                                <ImageButton Grid.Row="0" Grid.Column="0"
+                             Source="Pic.png" 
+                             IsVisible="true" 
+                             HorizontalOptions="CenterAndExpand" 
+                             VerticalOptions="CenterAndExpand"
+                             x:Name="btnSelectPic" 
+                             Clicked="btnSelectPic_Clicked"
+                             BorderColor="#BF043055" 
+                             BorderWidth="5" 
+                             CornerRadius="50" 
+                             HeightRequest="95" 
+                             WidthRequest="95"/>
+                                <Image IsVisible="false" x:Name="imageView" HeightRequest="95" WidthRequest="120" />
+                                <Entry Grid.Row="0" Grid.Column="1" x:Name="CatName" Placeholder="{x:Static resx:AppResources.CatName}"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           Keyboard ="Text"
+                           TextColor="White"/>
+                            </Grid>
+                            <Button Text="Update" HorizontalOptions="FillAndExpand" x:Name="BtnUpdate"
+                        Clicked="BtnUpdate_Clicked" TextColor="#BF043055" BackgroundColor="White" ></Button>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <!--  Popup Area  -->
+                <ContentView
+            x:Name="PU"
+            Padding="10,0"
+            AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+            AbsoluteLayout.LayoutFlags="All"
+            BackgroundColor="#C0808080"
+            IsVisible="false">
+
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <StackLayout
+                    BackgroundColor="White"
+                    HeightRequest="120"
+                    Orientation="Vertical"
+                    WidthRequest="180">
+                            <ActivityIndicator Color="#BF043055"
+                                           x:Name="AI"
+                                           IsVisible="False"
+                                           IsRunning="False" 
+                                           HorizontalOptions="CenterAndExpand" 
+                                           VerticalOptions="CenterAndExpand" />
+                            <Label Text="{x:Static resx:AppResources.Loading}" 
+                               TextColor="#BF043055"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+
+                    </StackLayout>
+
+                </ContentView>
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:IGS.Resx"
+             x:Class="IGS.Views.Menu.InternetConnection" 
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" Source="wifi.png" HeightRequest="250" />
+            <Label Text="{x:Static resx:AppResources.NIC}" TextColor="#BF043055" FontSize="Medium" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+            <Button x:Name="TA" 
+                    Text="{x:Static resx:AppResources.TAC}" 
+                                            TextColor="#BF043055"  
+                                            FontAttributes="Bold" 
+                    HorizontalOptions="FillAndExpand"
+                                            VerticalOptions="CenterAndExpand"
+                                            BorderColor="#BF043055"
+                                            BorderWidth="2"
+                                            BackgroundColor="White"
+                                            CornerRadius="15"
+                    Clicked="TA_Clicked"
+                                            FontSize="Medium"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

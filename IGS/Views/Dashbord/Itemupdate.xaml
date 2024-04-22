@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:IGS.Resx"
+             Title="{x:Static resx:AppResources.Items}"
+             x:Class="IGS.Views.Dashbord.Itemupdate">
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout
+        HorizontalOptions="CenterAndExpand">
+                <StackLayout Orientation="Vertical" Spacing="40" Margin="25" WidthRequest="400">
+                    <Frame BackgroundColor="#BF043055" HasShadow="False">
+                        <StackLayout Orientation="Vertical" Spacing="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label IsVisible="false" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0" x:Name="LId" Text="{Binding Id}" TextColor="#BF043055" FontSize="Medium" />
+                                <Entry Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="CBText" Text="{Binding DetailesName}" TextColor="White" FontSize="Medium" />
+
+                                <Picker Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="picker" TextColor="White" Title="{x:Static resx:AppResources.Items}" />
+
+                            </Grid>
+                            <Button Text="Update" HorizontalOptions="FillAndExpand" x:Name="BtnUpdate"
+                        Clicked="BtnUpdate_Clicked" TextColor="#BF043055" BackgroundColor="White" ></Button>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <!--  Popup Area  -->
+                <ContentView
+            x:Name="PU"
+            Padding="10,0"
+            AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+            AbsoluteLayout.LayoutFlags="All"
+            BackgroundColor="#C0808080"
+            IsVisible="false">
+
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <StackLayout
+                    BackgroundColor="White"
+                    HeightRequest="120"
+                    Orientation="Vertical"
+                    WidthRequest="180">
+                            <ActivityIndicator Color="#BF043055"
+                                           x:Name="AI"
+                                           IsVisible="False"
+                                           IsRunning="False" 
+                                           HorizontalOptions="CenterAndExpand" 
+                                           VerticalOptions="CenterAndExpand" />
+                            <Label Text="{x:Static resx:AppResources.Loading}" 
+                               TextColor="#BF043055"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+
+                    </StackLayout>
+
+                </ContentView>
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

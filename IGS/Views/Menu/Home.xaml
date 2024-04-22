@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:IGS.Resx"
+             x:Class="IGS.Views.Menu.Home" Title ="{x:Static resx:AppResources.HomeTitle}">
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout
+        Padding="0"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <ListView x:Name="UList"
+                          HasUnevenRows="True"
+                          IsPullToRefreshEnabled="True"
+                          ItemTapped="UList_ItemTapped"
+                          Refreshing="UList_Refreshing">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Spacing="2">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+                                            <Label IsVisible="false" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0" x:Name="LId" Text="{Binding Id}" TextColor="#BF043055" FontSize="Medium" />
+                                            <Image WidthRequest="45" HeightRequest="45" Source="{Binding CategoryImagePath}" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0" />
+                                            <Label HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="1" x:Name="Catname" Text="{Binding CategoryName}" TextColor="#BF043055" FontSize="Medium" />
+                                        </Grid>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <!--  Popup Area  -->
+                <ContentView
+            x:Name="PU"
+            Padding="10,0"
+            AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+            AbsoluteLayout.LayoutFlags="All"
+            BackgroundColor="#C0808080"
+            IsVisible="false">
+
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <StackLayout
+                    BackgroundColor="White"
+                    HeightRequest="120"
+                    Orientation="Vertical"
+                    WidthRequest="180">
+                            <ActivityIndicator Color="#BF043055"
+                                           x:Name="AI"
+                                           IsVisible="False"
+                                           IsRunning="False" 
+                                           HorizontalOptions="CenterAndExpand" 
+                                           VerticalOptions="CenterAndExpand" />
+                            <Label Text="{x:Static resx:AppResources.Loading}" 
+                               TextColor="#BF043055"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+
+                    </StackLayout>
+
+                </ContentView>
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

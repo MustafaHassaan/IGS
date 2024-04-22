@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:IGS.Resx"
+             x:Class="IGS.Views.Menu.Login" Title="{x:Static resx:AppResources.Login}">
+    <ContentPage.Content>
+        <AbsoluteLayout
+        Padding="0"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+                <BoxView HeightRequest="10"/>
+                <Frame BackgroundColor="#BF043055" HasShadow="False">
+                    <StackLayout Orientation="Vertical" Spacing="10">
+                        <Entry x:Name="Phone" Placeholder="{x:Static resx:AppResources.Phone}"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           Keyboard="Telephone"  
+                           TextColor="White"/>
+                        <Entry x:Name="Password" Placeholder="{x:Static resx:AppResources.Password}"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           IsPassword="True"  
+                           TextColor="White"/>
+                    </StackLayout>
+                </Frame>
+                <Grid>
+                    <Button x:Name="Sign" Grid.Row="0" Grid.Column="0" Command="{Binding SubmitCommand}" Text="{x:Static resx:AppResources.Login}" TextColor="White"  
+                    FontAttributes="Bold" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#BF043055" FontSize="Medium"
+                    Clicked="Sign_Clicked"/>
+                    <Button x:Name="Signin" Clicked="Signin_Clicked" Grid.Row="0" Grid.Column="1" Text="{x:Static resx:AppResources.RegisterTitle}" TextColor="White"  
+                    FontAttributes="Bold" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#BF043055" FontSize="Medium" />
+                    <Button x:Name="FMP" 
+                        Grid.Row="1" Grid.ColumnSpan="2" 
+                        Command="{Binding SubmitCommand}" 
+                        Text="{x:Static resx:AppResources.FMP}" 
+                        Clicked="FMP_Clicked" 
+                        TextColor="White"  
+                        FontAttributes="Bold" HorizontalOptions="FillAndExpand"  
+                        BackgroundColor="#BF043055" FontSize="Medium"/>
+                </Grid>
+            </StackLayout>
+            <!--  Popup Area  -->
+            <ContentView
+            x:Name="popupLoginView"
+            Padding="10,0"
+            AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+            AbsoluteLayout.LayoutFlags="All"
+            BackgroundColor="#C0808080"
+            IsVisible="false">
+
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <StackLayout
+                    BackgroundColor="White"
+                    HeightRequest="120"
+                    Orientation="Vertical"
+                    WidthRequest="180">
+                        <ActivityIndicator Color="#BF043055"
+                                           x:Name="AI"
+                                           IsVisible="False"
+                                           IsRunning="False" 
+                                           HorizontalOptions="CenterAndExpand" 
+                                           VerticalOptions="CenterAndExpand" />
+                        <Label Text="{x:Static resx:AppResources.Loading}" 
+                               TextColor="#BF043055"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand"/>
+                    </StackLayout>
+
+                </StackLayout>
+
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

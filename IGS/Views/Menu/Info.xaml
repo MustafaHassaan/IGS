@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:IGS.Resx"
+             Title="{x:Static resx:AppResources.more}"
+             x:Class="IGS.Views.Menu.Info">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Margin="20">
+                <Button x:Name="About" 
+                                            Command="{Binding SubmitCommand}"
+                                            Grid.Row="0" Grid.Column="0"
+                                            Text="{x:Static resx:AppResources.About}" 
+                                            Clicked="About_Clicked"
+                                            TextColor="#BF043055"  
+                                            FontAttributes="Bold" HorizontalOptions="FillAndExpand"
+                                            VerticalOptions="FillAndExpand"
+                                            BorderColor="#BF043055"
+                                            BorderWidth="2"
+                                            BackgroundColor="White"
+                                            CornerRadius="15"
+                                            FontSize="Medium"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
